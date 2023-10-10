@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* hanken-grotesk-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Hanken Grotesk";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/hanken-grotesk-v8-latin-regular.woff2") format("woff2");
+}
+
+/* hanken-grotesk-500 - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Hanken Grotesk";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/hanken-grotesk-v8-latin-500.woff2") format("woff2");
+}
+
+/* hanken-grotesk-500italic - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Hanken Grotesk";
+    font-style: italic;
+    font-weight: 500;
+    src: url("../fonts/hanken-grotesk-v8-latin-500italic.woff2") format("woff2");
+}
+
+/* hanken-grotesk-700 - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Hanken Grotesk";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/hanken-grotesk-v8-latin-700.woff2") format("woff2");
+}
+
+/* hanken-grotesk-700italic - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Hanken Grotesk";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/hanken-grotesk-v8-latin-700italic.woff2") format("woff2");
+}
+
+/* merriweather-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Merriweather";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/merriweather-v30-latin-regular.woff2") format("woff2");
+}
+
+/* merriweather-italic - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Merriweather";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/merriweather-v30-latin-italic.woff2") format("woff2");
+}
+
+/* merriweather-700 - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Merriweather";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/merriweather-v30-latin-700.woff2") format("woff2");
+}
+
+/* merriweather-700italic - latin */
+@font-face {
+    font-display: swap;
+    font-family: "Merriweather";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/merriweather-v30-latin-700italic.woff2") format("woff2");
+}
+
+[data-category-selected] {
+    @apply bg-black text-white;
+}
+
+.category-choice {
+    @apply bg-slate-300 rounded-full px-4 py-1 hover:scale-90;
+}
+
+.category-selected {
+    @apply bg-black text-white rounded-full px-4 py-1 hover:scale-90;
+}
+
+.p-container {
+    @apply grid bg-slate-100 px-6 py-4 rounded-md text-xl font-bold mb-6;
+}
+
+.p-form {
+    @apply p-4 border-b-4 border-slate-300 resize-y focus-visible:outline-none focus-visible:border-slate-400 break-words;
+}
+
+.error-message {
+    @apply text-sm text-red-600 font-medium;
+}
