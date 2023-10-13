@@ -63,3 +63,7 @@ Route::post("/dashboard/categories/create", [CategoryController::class, "createC
 Route::get("/dashboard/categories/edit/{category}", [CategoryController::class, "getCategory"])->middleware("auth");
 
 Route::get("/dashboard/categories/delete/{category}", [CategoryController::class, "deleteCategory"])->middleware("auth");
+
+Route::get("/dashboard/blogposts", [BlogpostController::class, "manageBlogposts"])->middleware("auth");
+
+Route::get("/dashboard/blogposts/delete/{blogpost}", [BlogpostController::class, "deleteBlogpost"])->middleware("auth");

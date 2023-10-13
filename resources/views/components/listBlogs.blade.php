@@ -1,6 +1,11 @@
 @props(['blogposts'])
 
 <section class="w-full grid">
+  @if (count($blogposts) == 0)
+      <h1 class="text-2xl font-bold">
+        No Blogpost Found.
+      </h1> 
+  @endif
   @foreach ($blogposts as $blogpost)
     <section class="w-full grid grid-cols-[1fr_3fr] py-4 border-b-2 border-gray-400">
       <div class="grid justify-center">

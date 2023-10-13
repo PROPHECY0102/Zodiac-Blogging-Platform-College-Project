@@ -139,4 +139,28 @@ class BlogpostController extends Controller
         CacheBlog::destroy($blogData->id);
         return redirect("/blogposts" . "/" . $newBlog->id)->with("message", "Your Blog has been publish on ZODIAC");
     }
+
+    public function manageBlogposts()
+    {
+        if (auth()->user()->role !== "Admin") {
+            return abort(404);
+        }
+        return view(
+            "pages.dashboard.blogposts",
+            [
+                "blogposts" => Blogpost::paginate(10),
+            ]
+        );
+    }
+
+    public function deleteBlogpost(Blogpost $blogpost)
+    {
+        if (auth()->user()->role !== "Admin") {
+            return abort(404);
+        }
+        $id = $blogpost->id;
+        $blogpost->categories()->detach();
+        Blogpost::destroy($id);
+        return redirect("/dashboard/blogposts")->with("message", "Blogpost " . $id . " has been deleted");
+    }
 }
