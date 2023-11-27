@@ -3,7 +3,7 @@
     <div class="border-l-8 border-yellow-500 py-4 px-6 flex justify-between items-center">
       <h1 class="font-bold text-xl">Manage Blogposts</h1>
     </div>
-    <div class="grid grid-flow-col grid-cols-[0.25fr_0.25fr_1fr_1fr_2fr_2fr_2fr_2fr_0.5_0.5] border-y-2 border-white gap-2 mx-2 text-sm">
+    <div class="grid grid-flow-col grid-cols-[0.5fr_0.5fr_1fr_1fr_1fr_1fr_1fr_0.5fr_0.5fr] border-y-2 border-white gap-2 mx-2 text-sm">
       <p class="px-4 py-2">ID</p>
       <p class="px-4 py-2">User_ID</p>
       <p class="px-4 py-2">Blogpost Title</p>
@@ -15,7 +15,7 @@
       <div></div>
     </div>
     @foreach ($blogposts as $blogpost)
-      <div class="grid grid-flow-col items-center grid-cols-[0.25fr_0.25fr_1fr_1fr_2fr_2fr_2fr_2fr_0.5_0.5] border-b-2 border-white gap-2 mx-2 text-sm">
+      <div class="grid grid-flow-col items-center grid-cols-[0.5fr_0.5fr_1fr_1fr_1fr_1fr_1fr_0.5fr_0.5fr] border-b-2 border-white gap-2 mx-2 text-sm">
       <p class="px-4 py-2">{{$blogpost->id}}</p>
       <p class="px-4 py-2">{{$blogpost->user_id}}</p>
       <p class="px-4 py-2 overflow-x-scroll">{{$blogpost->title}}</p>
@@ -25,7 +25,7 @@
         @endforeach
       </p>
       <p class="px-4 py-2 overflow-x-scroll">{{$blogpost->image}}</p>
-      <p class="px-4 py-2 overflow-x-scroll overflow-y-scroll">{{$blogpost->content}}</p>
+      <a href="/blogposts/{{$blogpost->id}}" target="_blank" class="text-blue-400 underline italic">View Content Here</a>
       <p class="px-4 py-2 overflow-x-scroll">{{$blogpost->created_at}}</p>
       <a href="/dashboard/blogposts/edit/{{$blogpost->id}}">Edit</a>
       <a href="/dashboard/blogposts/delete/{{$blogpost->id}}">Delete</a>

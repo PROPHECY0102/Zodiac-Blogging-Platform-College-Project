@@ -15,7 +15,7 @@
             </a>
           </li>
           <li>
-            <a class="w-full h-full grid place-items-center hover:text-white hover:bg-black" href="/">
+            <a class="w-full h-full grid place-items-center hover:text-white hover:bg-black" href="/categories">
               <span>Categories</span>
             </a>
           </li>

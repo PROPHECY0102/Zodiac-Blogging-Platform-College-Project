@@ -458,15 +458,29 @@ if (categoriesUnselected) {
     categoriesUnselected.forEach((btn) => {
         btn.addEventListener("click", (e) => {
             const id = e.target.id;
-            location.href = `/?category=${id}`;
+            const selectedCategories = [
+                ...new URLSearchParams(window.location.search).getAll(
+                    "category"
+                ),
+            ];
+            selectedCategories.push(id);
+            location.href = `/?category=${selectedCategories.join(",")}`;
         });
+        // btn.addEventListener("click", (e) => {
+        //     const id = e.target.id;
+        //     location.href = `/?category=${id}`;
+        // });
     });
 }
 
-const categoriesSelected = document.querySelector("[data-seleted-categories]");
+const categoriesSelected = document.querySelectorAll(
+    "[data-seleted-categories]"
+);
 
 if (categoriesSelected) {
-    categoriesSelected.addEventListener("click", () => {
-        location.href = "/";
+    categoriesSelected.forEach((category) => {
+        category.addEventListener("click", () => {
+            location.href = "/";
+        });
     });
 }

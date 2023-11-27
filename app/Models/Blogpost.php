@@ -15,7 +15,11 @@ class Blogpost extends Model
     {
         if ($filters["category"] ?? false) {
             $query->whereHas("categories", function ($query) {
-                $query->where("categories.id", request("category"));
+                $filteredCategories = request("category");
+                $categoryArray = explode(",", $filteredCategories);
+                foreach ($categoryArray as $category) {
+                    $query->where("categories.id", $category);
+                }
             });
         }
         if ($filters['search'] ?? false) {

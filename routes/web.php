@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BlogpostController::class, "index"]);
 
+Route::get("/categories", [CategoryController::class, "userCategories"]);
+
 Route::get("/blogposts/write", [BlogpostController::class, "write"]);
 
 Route::post("/blogposts/write", [BlogpostController::class, "submitToPreview"])->middleware("auth");

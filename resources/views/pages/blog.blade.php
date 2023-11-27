@@ -15,15 +15,11 @@
               <a href="/profile/{{$blogpost->user->id}}" class="underline font-bold">{{$blogpost->user->username}}</a>
             </div>
             @auth
-            @if (auth()->user()->id === $blogpost->user->id)
-            <div>
-              <button class="px-4 py-2 text-white bg-black font-bold hover:scale-95 hover:bg-slate-300 hover:text-black">Edit Blog</button>
-            </div>
-          @else
+            @if (auth()->user()->id !== $blogpost->user->id)
             <div>
               <button class="px-4 py-2 text-white bg-black font-bold hover:scale-95 hover:bg-slate-300 hover:text-black">Follow</button>
             </div>
-          @endif
+            @endif
             @endauth
           </div>
           <div class="grid font-medium border-l-2 border-black pl-4">

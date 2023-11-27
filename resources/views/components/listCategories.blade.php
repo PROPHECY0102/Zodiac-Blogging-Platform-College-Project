@@ -8,16 +8,41 @@
           No Categories Found.
         </h1>
     @endif
-    @foreach ($categories as $category)
-      @if (request()->input("category") == $category->id)
+    @php
+    // Filtering Multiple Categories Doesn't Work I had been debugging for two weeks straight and I had to move on
+    // Filtering only a Single Category works as expected
+        $categoriesParam = request()->input("category");
+        $categoriesArray = explode(",", $categoriesParam);
+        $selectedCategories = [];
+        foreach ($categories as $singleCategory) {
+          foreach ($categoriesArray as $selectedCategory) {
+            if ($selectedCategory == $singleCategory->id) {
+              array_push($selectedCategories, $singleCategory);
+            }
+          }
+        }
+        if (!empty($selectedCategories)) {
+          $unselectedCategories = array_filter($categories->toArray(), function ($cat) use ($selectedCategories) {
+          foreach ($selectedCategories as $selectedCat) {
+            if ($cat["id"] !== $selectedCat->id) {
+              return true;
+            }
+          }
+          return false;
+          });
+        } else {
+          $unselectedCategories = $categories->toArray();
+        }
+    @endphp
+      @foreach ($selectedCategories as $category)
         <button data-seleted-categories id="{{$category->id}}" class="px-4 py-2 bg-black text-white rounded-full font-medium hover:scale-90">
           {{$category->name}}
         </button>
-        @else
-        <button data-filter-categories id="{{$category->id}}" class="px-4 py-2 bg-slate-300 rounded-full font-medium hover:scale-90">
-          {{$category->name}}
-        </button>
-      @endif
-    @endforeach
+      @endforeach
+      @foreach ($unselectedCategories as $category)
+        <button data-filter-categories id="{{$category["id"]}}" class="px-4 py-2 bg-slate-300 rounded-full font-medium hover:scale-90">
+          {{$category["name"]}}
+        </button> 
+      @endforeach
   </div>
 </section>

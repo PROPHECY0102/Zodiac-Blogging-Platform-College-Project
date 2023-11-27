@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogpost;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
+    public function userCategories()
+    {
+        if (!Auth::check()) {
+            return redirect("/register")->with("message", "You must have a ZODIAC Account to view followed categories");
+        }
+        return view("pages.userCategories", [
+            "categories" => Category::get(),
+            "blogposts" => Blogpost::latest()->filter(request(["category"]))->paginate(10),
+        ]);
+    }
+
     public function manageCategories()
     {
         if (auth()->user()->role !== "Admin") {
