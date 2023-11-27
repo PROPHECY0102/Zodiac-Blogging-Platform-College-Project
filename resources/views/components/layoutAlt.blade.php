@@ -23,5 +23,6 @@
       </div>
     </div>
   </main>
+  <x-flash-message />
 </body>
 </html>

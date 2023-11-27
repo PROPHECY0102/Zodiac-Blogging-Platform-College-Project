@@ -484,3 +484,31 @@ if (categoriesSelected) {
         });
     });
 }
+
+// Flash Message
+function delayedDetect(selector, ms) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const element = document.querySelector(selector);
+            resolve(element);
+        }, ms);
+    });
+}
+
+async function flashMessageEvent() {
+    const flashMessage = await delayedDetect("#flash-message", 1000);
+    if (flashMessage) {
+        window.addEventListener(
+            "click",
+            () => {
+                flashMessage.classList.add("-translate-y-full");
+                setTimeout(() => {
+                    flashMessage.classList.add("hidden");
+                }, 300);
+            },
+            { once: true }
+        );
+    }
+}
+
+flashMessageEvent();

@@ -13,5 +13,6 @@
     {{$slot}}
   </main>
   <x-footer />
+  <x-flash-message />
 </body>
 </html>

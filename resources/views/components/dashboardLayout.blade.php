@@ -27,5 +27,6 @@
   <main class="w-full grid place-items-center">
     {{$slot}}
   </main>
+  <x-flash-message />
 </body>
 </html>
