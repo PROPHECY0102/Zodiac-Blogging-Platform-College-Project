@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 // General Routes for Main Pages and Blogpost Submission
 Route::get('/', [BlogpostController::class, "index"]);
 
-Route::get("/categories", [CategoryController::class, "userCategories"]);
+Route::get("/categories", [CategoryController::class, "userCategories"]); // WIP!
 
 Route::get("/blogposts/write", [BlogpostController::class, "write"]);
 
