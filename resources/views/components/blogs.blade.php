@@ -1,3 +1,4 @@
+{{-- Blogs Section Component on Homepage --}}
 @props(["blogposts", "categories"])
 
 @auth

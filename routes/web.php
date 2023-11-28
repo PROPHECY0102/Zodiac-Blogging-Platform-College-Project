@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// General Routes for Main Pages and Blogpost Submission
 Route::get('/', [BlogpostController::class, "index"]);
 
 Route::get("/categories", [CategoryController::class, "userCategories"]);
@@ -36,7 +37,7 @@ Route::get("/blogposts/submit/final", [BlogpostController::class, "store"])->mid
 
 Route::get("/blogposts/{blogpost}", [BlogpostController::class, "show"]);
 
-// Register and Login
+// Register and Login Routes
 Route::get("/register", [UserController::class, "register"])->middleware("guest");
 
 Route::post("/register", [UserController::class, "store"]);
@@ -47,7 +48,7 @@ Route::post("/login", [UserController::class, "authenticate"]);
 
 Route::post("/logout", [UserController::class, "logout"]);
 
-// Dashboard
+// Dashboard Routes
 Route::get("/dashboard", [UserController::class, "dashboard"])->middleware("auth");
 
 Route::get("/dashboard/users", [UserController::class, "manageUsers"])->middleware("auth");

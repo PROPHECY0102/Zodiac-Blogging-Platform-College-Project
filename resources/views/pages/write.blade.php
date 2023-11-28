@@ -1,10 +1,11 @@
+{{-- Page to load Blogpost Form for submitting new Blogpost --}}
 <x-layout>
   <section class="w-full grid place-items-center mb-12 relative">
     <div class="w-3/4 grid">
       <h1 class="text-2xl font-bold py-4">
         ZODIAC's Blog Editor Panel
       </h1>
-      {{-- Handle using AXIOS javascript --}}
+      {{-- Form Handle using AXIOS javascript --}}
       <form action="/blogposts/preview" method="POST" enctype="multipart/form-data" class="w-full grid gap-8" id="blog-form">
         @csrf
         <div class="grid">

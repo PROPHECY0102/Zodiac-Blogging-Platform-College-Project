@@ -11,6 +11,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+// Models are used for interacting the Database Directly ie to define relationship between tables and to filter results
+// Models in Laravel have a powerful tool called Eloquent it is an Object Relational Mapper (ORM) that allows abstracted interaction with the database
+// without raw SQL interaction which posed heavy security risk such as unsanitized SQL then leads to SQL injections
+// Eloquent Sanitizes SQL before executing it onto the Database
+// Models can be imported from the controller and interacted there
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -46,6 +52,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    // Defining relations between Users and other tables
     public function blogposts()
     {
         return $this->hasMany(Blogpost::class);

@@ -10,6 +10,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    // A Table for temporary Caching Blogpost for preview without publishing it on public Blogpost Table
     public function up(): void
     {
         Schema::create('cache_blogs', function (Blueprint $table) {

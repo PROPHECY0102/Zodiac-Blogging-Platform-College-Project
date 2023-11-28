@@ -11,6 +11,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    // Table for Cached blogposts attached Categories similar to blogposts_categories_junction but it is for Cache Blogs
     public function up(): void
     {
         Schema::create('cache_categories_blogs', function (Blueprint $table) {

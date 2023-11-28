@@ -11,6 +11,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    // Creating a many to many relationship between blogposts and categories as one blogpost can have many categories vice versa
     public function up(): void
     {
         Schema::create('blogposts_categories_junction', function (Blueprint $table) {

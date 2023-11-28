@@ -1,3 +1,4 @@
+{{-- Login Page --}}
 <x-layoutAlt>
   <section class="grid place-items-center px-6 py-10 bg-slate-100 rounded-md gap-6">
     <div class="text-center font-bold">

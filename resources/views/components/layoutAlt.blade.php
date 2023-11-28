@@ -1,3 +1,4 @@
+{{-- Layout and Boilerplate for Registration and Login Pages --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>

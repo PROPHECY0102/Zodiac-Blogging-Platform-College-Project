@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 
+// All Controllers Play a vital role in this Application. Controllers acts as the server middleman processing requests made both by the server and users
+// Blogpost Controller handles Pages that interacts with The Blogposts entity and Have access to the Blogpost Model
+
 class BlogpostController extends Controller
 {
+    // Display Index/Home Page for both signed in Users or guests
     public function index()
     {
         return view(
@@ -26,6 +30,7 @@ class BlogpostController extends Controller
         );
     }
 
+    // Display Single Blogpost Page Selected by the User
     public function show(Blogpost $blogpost)
     {
         return view("pages.blog", [
@@ -33,6 +38,7 @@ class BlogpostController extends Controller
         ]);
     }
 
+    // Display Blogpost Form to publish Blogpost as a user
     public function write()
     {
         if (!Auth::check()) {
@@ -43,6 +49,8 @@ class BlogpostController extends Controller
         ]);
     }
 
+    // Submitting Blogpost data into preview for final revision
+    // Uses the CacheBlog Table to temporary store preview blogs before submitting to public database
     public function submitToPreview(Request $request)
     {
         $formFields["title"] = $request->get("title");
@@ -64,6 +72,8 @@ class BlogpostController extends Controller
         return response()->json(["redirect" => "/blogposts/preview"]);
     }
 
+    // Displaying Preview page for newly publish blogpost
+    // Can be revise and discarded here
     public function preview()
     {
         $currentUser = User::find(auth()->user()->id);
@@ -76,6 +86,7 @@ class BlogpostController extends Controller
         ]);
     }
 
+    // If user choose to revise blogpost return user to editing form
     public function revise()
     {
         $currentUser = User::find(auth()->user()->id);
@@ -98,6 +109,8 @@ class BlogpostController extends Controller
         );
     }
 
+    // Discard the current blogpost in preview if user choose to not publish
+    // Deleting Cache Blogpost data from CacheBlog
     public function discard()
     {
         $currentUser = User::find(auth()->user()->id);
@@ -111,6 +124,8 @@ class BlogpostController extends Controller
         return redirect("/")->with("message", "Blogpost Discarded");
     }
 
+    // Submit Blogpost data into public DB and create a new record into Blogposts table
+    // Deleting Cache Blogpost data from CacheBlog
     public function store()
     {
         $currentUser = User::find(auth()->user()->id);
@@ -140,6 +155,7 @@ class BlogpostController extends Controller
         return redirect("/blogposts" . "/" . $newBlog->id)->with("message", "Your Blog has been publish on ZODIAC");
     }
 
+    // Displaying all Blogposts from Dashboard Page
     public function manageBlogposts()
     {
         if (auth()->user()->role !== "Admin") {
@@ -153,6 +169,7 @@ class BlogpostController extends Controller
         );
     }
 
+    // Delete Selected Blogpost from DB
     public function deleteBlogpost(Blogpost $blogpost)
     {
         if (auth()->user()->role !== "Admin") {

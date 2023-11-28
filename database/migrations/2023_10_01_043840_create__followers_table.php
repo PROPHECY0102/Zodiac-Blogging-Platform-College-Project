@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    // WIP! For Future Follow feature allows users to follow other users and filter post by followed users
     public function up(): void
     {
         Schema::create('followers', function (Blueprint $table) {

@@ -1,7 +1,9 @@
+/* Importing Tailwind CSS dependency */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Loading Custom Font : Hanken Grotesk */
 /* hanken-grotesk-regular - latin */
 @font-face {
     font-display: swap;
@@ -47,6 +49,7 @@
     src: url("../fonts/hanken-grotesk-v8-latin-700italic.woff2") format("woff2");
 }
 
+/* Loading Custom Font : Merriweather */
 /* merriweather-regular - latin */
 @font-face {
     font-display: swap;
@@ -83,6 +86,8 @@
     src: url("../fonts/merriweather-v30-latin-700italic.woff2") format("woff2");
 }
 
+/* Classes that uses @apply directives from Tailwind */
+/* These classes are use for Dynamically adding and removing style as a group instead of each classname one by one */
 [data-category-selected] {
     @apply bg-black text-white;
 }

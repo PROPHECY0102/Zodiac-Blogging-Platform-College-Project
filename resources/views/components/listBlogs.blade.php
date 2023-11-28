@@ -1,3 +1,4 @@
+{{-- Component to display all the blogs fetch from controller --}}
 @props(['blogposts'])
 
 <section class="w-full grid">

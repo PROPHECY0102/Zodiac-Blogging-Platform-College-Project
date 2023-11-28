@@ -10,6 +10,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    // Creating Blogposts Table
     public function up(): void
     {
         Schema::create('blogposts', function (Blueprint $table) {

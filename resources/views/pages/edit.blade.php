@@ -1,3 +1,4 @@
+{{-- Page for revising Blogpost before submitting it publicly --}}
 <x-layout>
   <script>
     window.editMode = true;

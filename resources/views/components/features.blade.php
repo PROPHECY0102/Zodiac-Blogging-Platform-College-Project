@@ -1,3 +1,4 @@
+{{-- Feature Section Component Homepage when Users are not Signed In --}}
 <section class="w-full grid place-items-center" data-feature>
   <div class="w-4/5 px-6 my-4">
     <div class="grid place-items-center gap-4">

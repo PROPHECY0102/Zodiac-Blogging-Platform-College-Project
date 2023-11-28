@@ -1,3 +1,4 @@
+{{-- Footer Section Component --}}
 <footer class="w-full grid place-items-center pt-8 mt-20 bg-black text-white">
   <section class="w-3/4 grid grid-flow-col grid-cols-[1fr_2fr_1fr]">
     <div class="grid gap-4 p-4 justify-start items-start">

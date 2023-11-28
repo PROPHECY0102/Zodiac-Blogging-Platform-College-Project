@@ -1,3 +1,4 @@
+{{-- Page for viewing single blogpost selected by the user --}}
 @php
     $blogContents = json_decode($blogpost->content);
 @endphp

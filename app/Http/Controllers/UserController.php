@@ -6,13 +6,18 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+// All Controllers Play a vital role in this Application. Controllers acts as the server middleman processing requests made both by the server and users
+// User Controller handles Pages that interacts with The Users entity and Have access to the User Model
+
 class UserController extends Controller
 {
+    // Display Register Page
     public function register()
     {
         return view("pages.register");
     }
 
+    // Validating and Registering new user accounts to users table in the database
     public function store(Request $request)
     {
         $formFields = $request->validate([
@@ -36,6 +41,7 @@ class UserController extends Controller
         return redirect('/')->with('message', 'User created and logged in!');
     }
 
+    // Logging Out User
     public function logout(Request $request)
     {
         auth()->logout();
@@ -47,6 +53,13 @@ class UserController extends Controller
         return redirect('/')->with('message', 'You have been logged out!');
     }
 
+    // Display Login Page
+    public function login()
+    {
+        return view("pages.login");
+    }
+
+    // Authenticate Login Credentials
     public function authenticate(Request $request)
     {
         $formFields = $request->validate([
@@ -63,11 +76,7 @@ class UserController extends Controller
         return back()->withErrors(['username' => 'Invalid Credentials'])->onlyInput('username');
     }
 
-    public function login()
-    {
-        return view("pages.login");
-    }
-
+    // Display Dashboard Page (Requires Admin Role)
     public function dashboard()
     {
         if (auth()->user()->role !== "Admin") {
@@ -76,6 +85,7 @@ class UserController extends Controller
         return view("pages.dashboard.home");
     }
 
+    // Display all Users in Dashboard
     public function manageUsers()
     {
         if (auth()->user()->role !== "Admin") {
@@ -86,6 +96,7 @@ class UserController extends Controller
         ]);
     }
 
+    // Get data for Single User in Dashboard with feature to edit User Credential from Dashboard WIP!
     public function getUser(User $user)
     {
         if (auth()->user()->role !== "Admin") {
@@ -96,6 +107,7 @@ class UserController extends Controller
         ]);
     }
 
+    // Functionality to delete selected user from Dashboard
     public function deleteUser(User $user)
     {
         if (auth()->user()->role !== "Admin") {

@@ -11,6 +11,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    // WIP! Table for Creating a many to many relationship between Users and categories which would allow users to follow categories
     public function up(): void
     {
         Schema::create('users_categories_junction', function (Blueprint $table) {

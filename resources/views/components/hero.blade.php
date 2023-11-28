@@ -1,3 +1,4 @@
+{{-- Hero Section Component Homepage when Users are not Signed In --}}
 <section class="w-full grid place-items-center bg-amber-50">
   <div class="w-4/5 grid grid-flow-col gap-4 auto-cols-fr px-6 my-16">
     <div class="grid gap-10">

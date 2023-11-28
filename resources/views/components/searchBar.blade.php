@@ -1,3 +1,4 @@
+{{-- Search Form input Field Component --}}
 <form action="/" class="bg-slate-300 p-2 w-full grid rounded-md">
   <div class="flex bg-slate-100">
     <input type="text" name="search" placeholder="Search Blogs..." class="w-full px-4 py-2" value="{{ request()->has('search') ? request()->input('search') : '' }}">

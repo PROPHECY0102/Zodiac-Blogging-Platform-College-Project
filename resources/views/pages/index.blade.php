@@ -1,3 +1,4 @@
+{{-- Homepage/Landing Page for both new user and login user --}}
 <x-layout>
   @auth
     <x-welcome />

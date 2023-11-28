@@ -1,3 +1,4 @@
+{{-- Layout and Boilerplate for Dashboard Pages --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>

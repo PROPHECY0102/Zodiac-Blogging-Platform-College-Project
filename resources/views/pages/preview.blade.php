@@ -1,3 +1,4 @@
+{{-- Page for previewing newly created blogpost before submitting --}}
 @php
     $blogContents = json_decode($blogData->content);
 @endphp

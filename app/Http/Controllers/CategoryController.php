@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 
+// All Controllers Play a vital role in this Application. Controllers acts as the server middleman processing requests made both by the server and users
+// Category Controller handles Pages that interacts with The Categories entity and Have access to the Category Model
+
 class CategoryController extends Controller
 {
+    // WIP! For Displaying and Managing User Followed Categories Does not work for now
     public function userCategories()
     {
         if (!Auth::check()) {
@@ -21,6 +25,7 @@ class CategoryController extends Controller
         ]);
     }
 
+    // Display All Categories from Dashboard Page
     public function manageCategories()
     {
         if (auth()->user()->role !== "Admin") {
@@ -31,6 +36,7 @@ class CategoryController extends Controller
         ]);
     }
 
+    // Displaying Form to add new Categories from Dashboard Page
     public function getCategoryForm()
     {
         if (auth()->user()->role !== "Admin") {
@@ -39,6 +45,7 @@ class CategoryController extends Controller
         return view("pages.dashboard.addCategories");
     }
 
+    // Create New Categories into Database via addCategories form from Dashboard page
     public function createCategory(Request $request)
     {
         if (auth()->user()->role !== "Admin") {
@@ -58,6 +65,7 @@ class CategoryController extends Controller
         return redirect("/dashboard/categories")->with("message", "New Category has been added");
     }
 
+    // Get data for Single Category in Dashboard with feature to edit Categories Details from Dashboard WIP!
     public function getCategory(Category $category)
     {
         if (auth()->user()->role !== "Admin") {
@@ -68,6 +76,7 @@ class CategoryController extends Controller
         ]);
     }
 
+    // Delete selected category from Dashboard Page
     public function deleteCategory(Category $category)
     {
         if (auth()->user()->role !== "Admin") {

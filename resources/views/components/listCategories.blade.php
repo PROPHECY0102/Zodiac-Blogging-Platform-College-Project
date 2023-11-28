@@ -1,3 +1,4 @@
+{{-- Component to display all categories fetched from the controller --}}
 @props(["categories"])
 
 <section class="w-full p-4 bg-slate-200 grid justify-start items-start gap-4 rounded-md">

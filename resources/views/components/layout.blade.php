@@ -1,3 +1,4 @@
+{{-- General Layout and Boilerplate for most pages includes default header/navigation and footer --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>

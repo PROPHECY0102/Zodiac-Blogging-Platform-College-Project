@@ -1,3 +1,4 @@
+{{-- Header and Navigation Component --}}
 <header class="w-full grid place-items-center bg-amber-50">
   <div class="w-4/5 border-b-2 border-solid border-black grid grid-flow-col auto-cols-fr px-4">
     <div class="grid justify-start items-center py-4">
